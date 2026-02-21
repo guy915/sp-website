@@ -16,7 +16,9 @@ body {
     font-size: 16px;
     background: var(--color-white);
     font-family: "Google Sans", sans-serif;
-    color: var(--color-dark)
+    color: var(--color-dark);
+
+    /* line-height: 2rem; */
 }
 
 .spacer {
@@ -25,13 +27,13 @@ body {
 
 .banner {
     width: 100%;
-    height: 30rem;
+    height: 100vh;
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
     color: var(--color-white);
 }
 
@@ -70,13 +72,20 @@ body {
 
 h1 {
     text-align: center;
+    margin-bottom: 0.4rem;
+}
+
+p {
+    line-height: 1.8rem;
 }
 
 .title {
     font-size: 3rem;
     /* text-transform: uppercase; */
     /* font-style: italic; */
-    transition: transform 800ms, opacity 800ms;
+    transition:
+        transform 800ms,
+        opacity 800ms;
     transform-origin: bottom center;
     transform: skewX(-15deg);
     position: relative;
@@ -106,4 +115,17 @@ h1 {
 
 .initial {
     opacity: 100%;
+}
+
+.scroll-show {
+    opacity: 0;
+    transition:
+        opacity 800ms,
+        transform 800ms;
+    transform: translateX(-2rem);
+}
+
+.scroll-show.show {
+    opacity: 100%;
+    transform: none;
 }
