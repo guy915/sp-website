@@ -25,6 +25,20 @@ body {
     height: 1.5rem;
 }
 
+.parallax {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax > img {
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .banner {
     width: 100%;
     height: 100vh;
@@ -47,14 +61,12 @@ body {
     transition: opacity 800ms;
 }
 
-.banner img {
+.banner .parallax {
     z-index: -1;
     position: absolute;
     width: 100%;
     height: 100%;
     inset: 0;
-    object-fit: cover;
-    object-position: center;
 }
 
 .banner-content {
@@ -129,4 +141,54 @@ p {
 .scroll-show.show {
     opacity: 100%;
     transform: none;
+}
+
+/* ============ CAST ============ */
+
+@media only screen and (min-width: 600px) {
+    .cast .member {
+        height: 30rem;
+    }
+
+    .cast .member:nth-child(odd) {
+        flex-direction: row;
+    }
+
+    .cast .member:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .cast .member .parallax {
+        height: 100% !important;
+        width: auto !important;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .cast .member {
+        height: 40rem;
+    }
+}
+
+.cast .member {
+    display: flex;
+    flex-direction: column;
+    min-height: fit-content;
+}
+
+.cast .member .parallax {
+    height: 40rem;
+    width: 100%;
+}
+
+.cast .member .parallax img {
+    object-fit: cover;
+}
+
+.cast .member .content {
+    flex: 1 0;
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
 }
