@@ -4,6 +4,8 @@ $.when($.ready).then(() => {
     setTimeout(() => initial.removeClass("initial"), 500);
 });
 
+const bannerImg = $(".banner > img");
+
 $(window).on("scroll", () => {
     const scrollShow = $(".scroll-show");
 
@@ -18,4 +20,6 @@ $(window).on("scroll", () => {
             $(obj).addClass("show");
         }
     });
+
+    bannerImg.css("top", scrollTop / 4);
 });
