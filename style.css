@@ -76,13 +76,18 @@ body {
     text-align: center;
 }
 
-.tudelft-logo {
+.tudelft-logo-link {
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
+    z-index: 2;
+    line-height: 0;
+}
+
+.tudelft-logo {
+    display: block;
     height: clamp(6rem, 7vw, 7.5rem);
     width: auto;
-    z-index: 2;
     transition: opacity 800ms, transform 800ms;
 }
 
