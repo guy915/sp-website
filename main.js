@@ -26,8 +26,6 @@ function scrollEvent() {
         const top = $(obj).offset().top;
         const height = $(obj).height();
 
-        if (i === 0) console.log(`${i}: ${top}`);
-
         $(obj)
             .find("img")
             .css("height", height + windowHeight / 4)
