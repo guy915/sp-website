@@ -1,7 +1,31 @@
+function syncNameRows() {
+    const rows = $(".name-row");
+    rows.removeClass("stacked");
+
+    let anyOverflow = false;
+    rows.each((i, row) => {
+        const h2 = row.querySelector("h2");
+        const socials = row.querySelector(".socials");
+        if (h2 && socials) {
+            const needed = h2.scrollWidth + socials.scrollWidth + 12;
+            if (needed > row.clientWidth) {
+                anyOverflow = true;
+                return false;
+            }
+        }
+    });
+
+    if (anyOverflow) rows.addClass("stacked");
+}
+
 $.when($.ready).then(() => {
     const initial = $(".initial");
 
     setTimeout(() => initial.removeClass("initial"), 500);
+
+    $(".socials a").attr("target", "_blank");
+
+    syncNameRows();
 });
 
 const parallax = $(".parallax");
@@ -24,8 +48,6 @@ function scrollEvent() {
         const top = $(obj).offset().top;
         const height = $(obj).height();
 
-        if (i === 0) console.log(`${i}: ${top}`);
-
         $(obj)
             .find("img")
             .css("height", height + windowHeight / 4)
@@ -34,4 +56,7 @@ function scrollEvent() {
 }
 
 $(window).on("scroll", scrollEvent);
-$(window).on("resize", scrollEvent);
+$(window).on("resize", () => {
+    scrollEvent();
+    syncNameRows();
+});
