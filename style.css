@@ -75,6 +75,15 @@ body {
     text-align: center;
 }
 
+.tudelft-logo {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    height: 8rem;
+    width: auto;
+    z-index: 2;
+}
+
 .container {
     width: 940px;
     max-width: 100%;
