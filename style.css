@@ -79,7 +79,7 @@ body {
 .tudelft-logo {
     position: absolute;
     top: 0.5rem;
-    right: 0.5rem;
+    left: 0.5rem;
     height: clamp(6rem, 7vw, 7.5rem);
     width: auto;
     z-index: 2;
